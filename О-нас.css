@@ -1,0 +1,13 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 400px;
+}@font-face {
+  font-family: 'TypeMates-CeraRoundPro-Black';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/TypeMates-CeraRoundPro-Black.otf);
+}@font-face {
+  font-family: 'TypeMates-CeraRoundPro-Medium';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/TypeMates-CeraRoundPro-Medium.otf);
+}
