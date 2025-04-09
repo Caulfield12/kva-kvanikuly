@@ -387,7 +387,7 @@
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
   <input type="hidden" name="_subject" value="Новое сообщение с сайта">
-
+  
   <!-- Имя -->
   <div class="u-form-group u-form-name">
     <label for="name-2abe" class="u-form-control-hidden u-label"></label>
@@ -400,15 +400,47 @@
     <input type="email" placeholder="Введите имейл адрес" id="email-2abe" name="email" class="u-input u-input-rectangle u-radius u-input-2" required>
   </div>
 
-  <!-- Кнопка как в NicePage -->
+  <!-- Кнопка отправки -->
   <div class="u-align-left u-form-group u-form-submit">
     <a href="#" class="u-active-custom-color-11 u-btn u-btn-round u-btn-submit u-button-style u-custom-color-2 u-hover-custom-color-3 u-radius u-btn-1"
-       onclick="document.getElementById('form-2').submit(); return false;">
+       onclick="submitForm(); return false;">
       Отправить
     </a>
     <input type="submit" value="submit" class="u-form-control-hidden">
   </div>
+
+  <!-- Сообщение после успешной отправки -->
+  <div class="u-form-send-message u-form-send-success" style="display:none;">Спасибо! Ваше сообщение отправлено.</div>
+  <div class="u-form-send-error u-form-send-message" style="display:none;">Отправка не удалась. Пожалуйста, исправьте ошибки и попробуйте еще раз.</div>
 </form>
+
+<script>
+  function submitForm() {
+    var form = document.getElementById('form-2');
+
+    // Отправляем форму через AJAX
+    var formData = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        // Показываем сообщение об успешной отправке
+        document.querySelector('.u-form-send-success').style.display = 'block';
+        form.reset(); // Очистка формы
+      } else {
+        // Если ошибка, показываем сообщение об ошибке
+        document.querySelector('.u-form-send-error').style.display = 'block';
+      }
+    })
+    .catch(error => {
+      // В случае ошибки
+      document.querySelector('.u-form-send-error').style.display = 'block';
+    });
+  }
+</script>
+
 
 
 
