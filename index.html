@@ -35,7 +35,7 @@
             <p class="u-align-center u-text u-text-4"> Отличный способ провести каникулы,&nbsp;<br>не выезжая из города
             </p>
             <div class="u-form u-form-1">
-<form action="https://formsubmit.co/olgor8@mail.ru" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" style="padding: 7px;">
+<form action="https://formsubmit.co/olgor8@mail.ru" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" style="padding: 7px;" novalidate>
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
   
@@ -48,7 +48,7 @@
   <!-- Поле для номера телефона -->
   <div class="u-form-group u-form-group-2">
     <label for="text-a57e" class="u-label"></label>
-    <input type="text" placeholder="Ваш Номер Телефона" id="text-a57e" name="text" class="u-input u-input-rectangle u-radius u-input-2">
+    <input type="text" placeholder="Ваш Номер Телефона" id="text-a57e" name="text" class="u-input u-input-rectangle u-radius u-input-2" required>
   </div>
 
   <!-- Кнопка отправки -->
@@ -58,13 +58,15 @@
   </div>
 
   <!-- Сообщения о результате отправки -->
-  <div class="u-form-send-message u-form-send-success">Спасибо! Ваше сообщение отправлено.</div>
-  <div class="u-form-send-error u-form-send-message">Отправка не удалась. Пожалуйста, исправьте ошибки и попробуйте еще раз.</div>
+  <div class="u-form-send-message u-form-send-success" style="display:none;">Спасибо! Ваше сообщение отправлено.</div>
+  <div class="u-form-send-error u-form-send-message" style="display:none;">Отправка не удалась. Пожалуйста, исправьте ошибки и попробуйте еще раз.</div>
 
   <!-- Скрытые поля для настроек формы -->
   <input type="hidden" name="_next" value="https://ваш_сайт/спасибо">
   <input type="hidden" name="_subject" value="Новое сообщение с сайта">
 </form>
+
+
 
 
 
