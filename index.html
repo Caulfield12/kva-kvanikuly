@@ -429,21 +429,23 @@
       body: formData
     })
     .then(response => {
-      if (response.ok) {
-        // Показываем сообщение об успешной отправке
-        document.querySelector('.u-form-send-success').style.display = 'block';
-        form.reset(); // Очистка формы
-      } else {
-        // Если ошибка, показываем сообщение об ошибке
-        document.querySelector('.u-form-send-error').style.display = 'block';
+      // Даже если будет ошибка, показываем успешное сообщение
+      document.querySelector('.u-form-send-success').style.display = 'block';
+      form.reset(); // Очистка формы
+
+      // Если нужно, можно логировать ошибки в консоль
+      if (!response.ok) {
+        console.log('Ошибка отправки формы:', response.status);
       }
     })
     .catch(error => {
-      // В случае ошибки
-      document.querySelector('.u-form-send-error').style.display = 'block';
+      // В случае ошибки, также показываем успешное сообщение
+      document.querySelector('.u-form-send-success').style.display = 'block';
+      console.log('Ошибка:', error);
     });
   }
 </script>
+
 
 
 
