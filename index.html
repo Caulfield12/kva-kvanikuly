@@ -35,36 +35,65 @@
             <p class="u-align-center u-text u-text-4"> Отличный способ провести каникулы,&nbsp;<br>не выезжая из города
             </p>
             <div class="u-form u-form-1">
-<form action="https://formsubmit.co/olgor8@mail.ru" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" style="padding: 7px;" novalidate>
+<form action="https://formsubmit.co/olgor8@mail.ru" method="POST"
+  class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form"
+  style="padding: 7px;" id="form-1" novalidate>
+
+  <!-- скрытые настройки -->
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
-  
-  <!-- Поле для email -->
+  <input type="hidden" name="_subject" value="Новая заявка с формы 1">
+  <input type="hidden" name="_next" value="#">
+
+  <!-- Email -->
   <div class="u-form-email u-form-group">
     <label for="email-6a39" class="u-label"></label>
-    <input type="email" placeholder="Ваша почта" id="email-6a39" name="email" class="u-input u-input-rectangle u-radius u-input-1" required>
+    <input type="email" placeholder="Ваша почта" id="email-6a39" name="email"
+      class="u-input u-input-rectangle u-radius u-input-1" required>
   </div>
 
-  <!-- Поле для номера телефона -->
+  <!-- Телефон -->
   <div class="u-form-group u-form-group-2">
     <label for="text-a57e" class="u-label"></label>
-    <input type="text" placeholder="Ваш Номер Телефона" id="text-a57e" name="text" class="u-input u-input-rectangle u-radius u-input-2" required>
+    <input type="text" placeholder="Ваш Номер Телефона" id="text-a57e" name="text"
+      class="u-input u-input-rectangle u-radius u-input-2" required>
   </div>
 
-  <!-- Кнопка отправки -->
+  <!-- Кнопка -->
   <div class="u-align-left u-form-group u-form-submit">
-    <a href="#" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-gradient u-none u-radius u-btn-1">Узнать подробнее</a>
+    <a href="#" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-gradient u-none u-radius u-btn-1"
+      onclick="handleForm1Submit(event)">Узнать подробнее</a>
     <input type="submit" value="submit" class="u-form-control-hidden">
   </div>
 
-  <!-- Сообщения о результате отправки -->
-  <div class="u-form-send-message u-form-send-success" style="display:none;">Спасибо! Ваше сообщение отправлено.</div>
-  <div class="u-form-send-error u-form-send-message" style="display:none;">Отправка не удалась. Пожалуйста, исправьте ошибки и попробуйте еще раз.</div>
-
-  <!-- Скрытые поля для настроек формы -->
-  <input type="hidden" name="_next" value="https://ваш_сайт/спасибо">
-  <input type="hidden" name="_subject" value="Новое сообщение с сайта">
+  <!-- Сообщение -->
+  <div id="form-1-success" class="u-form-send-message u-form-send-success" style="display:none;">
+    Спасибо! Ваше сообщение отправлено.
+  </div>
 </form>
+
+<script>
+  function handleForm1Submit(event) {
+    event.preventDefault();
+    const form = document.getElementById('form-1');
+    const successMessage = document.getElementById('form-1-success');
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData
+    }).then(response => {
+      form.reset();
+      successMessage.style.display = 'block';
+    }).catch(error => {
+      form.reset();
+      successMessage.style.display = 'block';
+      console.error('Ошибка отправки формы 1:', error);
+    });
+  }
+</script>
+
 
 
 
