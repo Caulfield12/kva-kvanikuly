@@ -382,69 +382,65 @@
         <img class="u-expanded-width u-image u-image-1" src="images/group-kids-friends-arm-around-sitting-together_1150-390.png" data-image-width="1262" data-image-height="895">
         <p class="u-align-center u-text u-text-custom-color-14 u-text-1">Заполните форму и мы свяжемся с вами сегодня</p>
         <div class="u-expanded-width-xs u-form u-form-1">
-<form action="https://formsubmit.co/olgor8@mail.ru" method="POST" class="u-clearfix u-form-spacing-13 u-form-vertical u-inner-form" style="padding: 50px;" id="form-2">
-  <!-- Настройки для formsubmit -->
+<form action="https://formsubmit.co/olgor8@mail.ru" method="POST"
+  class="u-clearfix u-form-spacing-13 u-form-vertical u-inner-form"
+  style="padding: 50px;" id="custom-form">
+
+  <!-- скрытые настройки -->
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
   <input type="hidden" name="_subject" value="Новое сообщение с сайта">
-  
+  <input type="hidden" name="_next" value="#">
+
   <!-- Имя -->
   <div class="u-form-group u-form-name">
-    <label for="name-2abe" class="u-form-control-hidden u-label"></label>
-    <input type="text" placeholder="Введите Ваше имя" id="name-2abe" name="name" class="u-input u-input-rectangle u-radius u-input-1" required>
+    <label for="name" class="u-form-control-hidden u-label"></label>
+    <input type="text" placeholder="Введите Ваше имя" id="name" name="name"
+      class="u-input u-input-rectangle u-radius u-input-1" required>
   </div>
 
   <!-- Email -->
   <div class="u-form-email u-form-group">
-    <label for="email-2abe" class="u-form-control-hidden u-label"></label>
-    <input type="email" placeholder="Введите имейл адрес" id="email-2abe" name="email" class="u-input u-input-rectangle u-radius u-input-2" required>
+    <label for="email" class="u-form-control-hidden u-label"></label>
+    <input type="email" placeholder="Введите имейл адрес" id="email" name="email"
+      class="u-input u-input-rectangle u-radius u-input-2" required>
   </div>
 
   <!-- Кнопка отправки -->
   <div class="u-align-left u-form-group u-form-submit">
     <a href="#" class="u-active-custom-color-11 u-btn u-btn-round u-btn-submit u-button-style u-custom-color-2 u-hover-custom-color-3 u-radius u-btn-1"
-       onclick="submitForm(); return false;">
-      Отправить
-    </a>
+      onclick="handleFormSubmit(event)">Отправить</a>
     <input type="submit" value="submit" class="u-form-control-hidden">
   </div>
 
-  <!-- Сообщение после успешной отправки -->
-  <div class="u-form-send-message u-form-send-success" style="display:none;">Спасибо! Ваше сообщение отправлено.</div>
-  <div class="u-form-send-error u-form-send-message" style="display:none;">Отправка не удалась. Пожалуйста, исправьте ошибки и попробуйте еще раз.</div>
+  <!-- Сообщения -->
+  <div id="success-message" class="u-form-send-message u-form-send-success" style="display:none;">
+    Спасибо! Ваше сообщение отправлено.
+  </div>
 </form>
 
 <script>
-  function submitForm() {
-    var form = document.getElementById('form-2');
-    
-    // Скрываем сообщения об ошибке и успехе при новом сабмите
-    document.querySelector('.u-form-send-success').style.display = 'none';
-    document.querySelector('.u-form-send-error').style.display = 'none';
+  function handleFormSubmit(event) {
+    event.preventDefault(); // предотвращаем переход и отправку формы браузером
+    const form = document.getElementById('custom-form');
+    const successMessage = document.getElementById('success-message');
 
-    // Отправляем форму через AJAX
-    var formData = new FormData(form);
+    const formData = new FormData(form);
+
     fetch(form.action, {
       method: 'POST',
       body: formData
-    })
-    .then(response => {
-      // Даже если будет ошибка, показываем успешное сообщение
-      document.querySelector('.u-form-send-success').style.display = 'block';
-      form.reset(); // Очистка формы
-
-      // Если нужно, можно логировать ошибки в консоль
-      if (!response.ok) {
-        console.log('Ошибка отправки формы:', response.status);
-      }
-    })
-    .catch(error => {
-      // В случае ошибки, также показываем успешное сообщение
-      document.querySelector('.u-form-send-success').style.display = 'block';
-      console.log('Ошибка:', error);
+    }).then(response => {
+      form.reset();
+      successMessage.style.display = 'block';
+    }).catch(error => {
+      form.reset();
+      successMessage.style.display = 'block';
+      console.error('Ошибка отправки:', error);
     });
   }
 </script>
+
 
 
 
