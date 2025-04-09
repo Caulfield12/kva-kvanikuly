@@ -382,28 +382,30 @@
         <img class="u-expanded-width u-image u-image-1" src="images/group-kids-friends-arm-around-sitting-together_1150-390.png" data-image-width="1262" data-image-height="895">
         <p class="u-align-center u-text u-text-custom-color-14 u-text-1">Заполните форму и мы свяжемся с вами сегодня</p>
         <div class="u-expanded-width-xs u-form u-form-1">
-  <form action="https://formsubmit.co/olgor8@mail.ru" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" style="padding: 7px;" novalidate>
-  <!-- Настройки FormSubmit -->
+<form action="https://formsubmit.co/olgor8@mail.ru" method="POST" class="u-clearfix u-form-vertical u-form-spacing-13 u-inner-form" style="padding: 50px;" id="custom-form">
+  <!-- Отключаем капчу и задаем вид шаблона -->
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_next" value="https://ваш_сайт/спасибо">
   <input type="hidden" name="_subject" value="Новое сообщение с сайта">
+  <!-- Имя -->
+  <div class="u-form-group u-form-name">
+    <label for="name-custom" class="u-form-control-hidden u-label"></label>
+    <input type="text" placeholder="Введите Ваше имя" id="name-custom" name="name" class="u-input u-input-rectangle u-radius u-input-1" required>
+  </div>
 
   <!-- Email -->
   <div class="u-form-email u-form-group">
-    <input type="email" placeholder="Ваша почта" name="email" class="u-input u-input-rectangle u-radius u-input-1" required>
-  </div>
-
-  <!-- Телефон -->
-  <div class="u-form-group u-form-group-2">
-    <input type="text" placeholder="Ваш Номер Телефона" name="text" class="u-input u-input-rectangle u-radius u-input-2" required>
+    <label for="email-custom" class="u-form-control-hidden u-label"></label>
+    <input type="email" placeholder="Введите имейл адрес" id="email-custom" name="email" class="u-input u-input-rectangle u-radius u-input-2" required>
   </div>
 
   <!-- Кнопка -->
   <div class="u-align-left u-form-group u-form-submit">
-    <button type="submit" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-gradient u-none u-radius u-btn-1">Узнать подробнее</button>
+    <a href="#" class="u-btn u-btn-round u-btn-submit u-button-style u-custom-color-2 u-radius u-btn-1" onclick="document.getElementById('custom-form').submit(); return false;">Отправить</a>
+    <input type="submit" value="submit" class="u-form-control-hidden">
   </div>
 </form>
+
 
         </div>
         <a href="#popup-7c2c" class="u-border-1 u-border-hover-white u-border-no-left u-border-no-right u-border-no-top u-border-white u-btn u-button-style u-dialog-link u-none u-text-grey-5 u-btn-2"> Нажимая на кнопку, вы соглашаетесь c&nbsp;<br>политикой конфиденциальности<span style="font-size: 0.75rem;"></span>
