@@ -50,24 +50,27 @@
             </p>
             <div class="u-form u-form-1">
              <div class="container">
-  <h1>FormSubmit Demo</h1>
-  <form action="https://formsubmit.co/olgor8@mail.ru" method="POST">
-    <div class="form-group">
-      <div class="form-row">
-        <div class="col">
-          <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-        </div>
-        <div class="col">
-          <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
-  </form>
-</div>
+<form action="https://formsubmit.co/olgor8@mail.ru" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" style="padding: 7px;">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+
+  <!-- Поле для почты -->
+  <div class="u-form-email u-form-group">
+    <label for="email-6a39" class="u-label"></label>
+    <input type="email" placeholder="Ваша почта" id="email-6a39" name="Почта" class="u-input u-input-rectangle u-radius u-input-1" required>
+  </div>
+
+  <!-- Поле для телефона -->
+  <div class="u-form-group u-form-group-2">
+    <label for="text-a57e" class="u-label"></label>
+    <input type="text" placeholder="Ваш Номер Телефона" id="text-a57e" name="Телефон" class="u-input u-input-rectangle u-radius u-input-2" required>
+  </div>
+
+  <!-- Кнопка отправки -->
+  <div class="u-align-left u-form-group u-form-submit">
+    <button type="submit" class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-gradient u-none u-radius u-btn-1">Узнать подробнее</button>
+  </div>
+</form>
 
 
 
