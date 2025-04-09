@@ -417,6 +417,10 @@
 <script>
   function submitForm() {
     var form = document.getElementById('form-2');
+    
+    // Скрываем сообщения об ошибке и успехе при новом сабмите
+    document.querySelector('.u-form-send-success').style.display = 'none';
+    document.querySelector('.u-form-send-error').style.display = 'none';
 
     // Отправляем форму через AJAX
     var formData = new FormData(form);
